@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new Item</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Item</h1>
+
+    <form action="/users/<%= user._id %>/foods" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        
+        <br> <br>
+        <label for="recipes">Recipes:</label>
+        <textarea name="recipes" id="recipes" required></textarea>
+        <br> <br>
+        
+        <label for="rating">Rating (X out of 5):</label>
+        <select name="rating" id="rating">
+          <option value= "1" >1</option>
+          <option value= "2" >2</option>
+          <option value= "3">3</option>
+          <option value= "4">4</option>
+          <option value= "5">5</option>
+        </select>
+
+        <button type="submit">Add the item</button>
+    
+    
+</body>
+</html>

@@ -8,5 +8,17 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to my Pantry</h1>
+    <% if (currentPantries.length > 0) { %>
+      <% currentPantries.forEach((pantry) => { %>
+        <li>
+          <a href = "/users/<%= user._id %>/foods/<%= pantry._id %>">
+            <%= pantry.name %>
+          </a>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <p>There are no items in this pantry.</p>     
+    <% } %>
+
   </body>
 </html>

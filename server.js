@@ -14,8 +14,6 @@ const foodsController = require('./controllers/foods.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 
-
-
 const port = process.env.PORT ? process.env.PORT : '3000';
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -48,9 +46,6 @@ app.use(isSignedIn);
 app.use('/users/:userId/foods',foodsController);
 
 
-
-
-
 app.get('/vip-lounge', (req, res) => {
   if (req.session.user) {
     res.send(`Welcome to the party ${req.session.user.username}.`);
@@ -59,7 +54,7 @@ app.get('/vip-lounge', (req, res) => {
   }
 });
 
-app.use('/auth', authController);
+
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
