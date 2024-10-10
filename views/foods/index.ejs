@@ -14,12 +14,18 @@
           <a href = "/users/<%= user._id %>/foods/<%= pantry._id %>">
             <%= pantry.name %>
           </a>
+          <br>
+          <a href="/users/<%= user._id %>/foods/<%= pantry._id %>/edit">
+            Edit this pantry
+          </a>
+          <br>
           <form
               action="/users/<%= user._id %>/foods/<%= pantry._id %>?_method=DELETE"
               method="POST">
               <button type="submit">Delete this pantry</button>
           </form>
         </li>
+        <br><br>
       <% }) %>
     <% } else { %>
       <p>There are no items in this pantry.</p>     

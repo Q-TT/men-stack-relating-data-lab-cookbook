@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit page</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit page</h1>
+
+    <form action="/users/<%= user._id %>/foods/<%= currentPantry._id %>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value= "<%= currentPantry.name %>" required>
+        
+        <br> <br>
+        <label for="recipes">Recipes:</label>
+        <textarea name="recipes" id="recipes" required><%= currentPantry.recipes %></textarea>
+        <br> <br>
+        
+        <label for="rating">Rating (X out of 5):</label>
+        <select name="rating" id="rating">
+          <option value= "1" <%= currentPantry.rating === "1" ? "selected" : "" %> >1</option>
+          <option value= "2" <%= currentPantry.rating === "2" ? "selected" : "" %>>2</option>
+          <option value= "3"<%= currentPantry.rating === "3" ? "selected" : "" %>>3</option>
+          <option value= "4"<%= currentPantry.rating === "4" ? "selected" : "" %>>4</option>
+          <option value= "5"<%= currentPantry.rating === "5" ? "selected" : "" %>>5</option>
+        </select>
+
+        <button type="submit">Update the item</button>
+    
+</body>
+</html>
